@@ -2,6 +2,7 @@ import React from "react";
 import Card from 'react-bootstrap/Card';
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
+import Pagination from 'react-bootstrap/Pagination';
 
 export default function Menus() {
   const cardData = [
