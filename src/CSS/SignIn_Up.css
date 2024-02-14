@@ -1,4 +1,4 @@
-@use postcss-preset-env;
+
 
 @import url(https://weloveiconfonts.com/api/?family=fontawesome);
 
@@ -235,7 +235,7 @@ h2{
 }
 
 .twitter-before {
-  background: #189bcb;
+  background: #101114;
   border-radius: 3px 0px 0px 3px;
   color: #f4f4f4;
   display: block;
@@ -248,7 +248,7 @@ h2{
 
 
 .twitter {
-  background: #1bb2e9;
+  background: #1f3239;
   border: none;
   border-radius: 0px 3px 3px 0px;
   color: #f4f4f4;
