@@ -13,20 +13,22 @@ import Menus from './Components/Menus';
 
 function App() {
   return (
-    <div>
-      <NavBar />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Acceuil />}/>
-          <Route path="/menus" element={<Menus />} />
-          <Route path="/chefs" element={<Chefs />} />
-          <Route path="/contact" element={<Contacts />} />
-          <Route path="/feedback" element={<Feedbacks />} />
-          <Route path="/signup" element={<SignUp />} />
-        </Routes>
-      </BrowserRouter>
-      <br/><br/>
-      <Footer />
+    <div className='All'>  
+    <NavBar />
+      <div className='App'>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Acceuil />}/>
+            <Route path="/menus" element={<Menus />} />
+            <Route path="/chefs" element={<Chefs />} />
+            <Route path="/contact" element={<Contacts />} />
+            <Route path="/feedback" element={<Feedbacks />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Routes>
+        </BrowserRouter>
+        <br/><br/>
+      </div> 
+      <Footer />  
     </div>
 
   );

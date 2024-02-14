@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 export default function NavBar() {
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar bg="dark" data-bs-theme="dark" style={{ zIndex: 3 }}>
         <Container>
           <Navbar.Brand href="#home">RestoFinder</Navbar.Brand>
           <Nav className="me-auto">
@@ -18,5 +18,6 @@ export default function NavBar() {
         </Container>
       </Navbar>
     </>
+
   );
 }
