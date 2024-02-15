@@ -1,7 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import '../css/contact.css';
+import '../CSS/contact.css';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 function Contact() {
@@ -38,10 +38,10 @@ function Contact() {
                             <label>Phone</label>
                         </div>
                         <div class="input-box">
-                            <input type="text" className="input" required/>
+                            <textarea id="message" className="input" cols="25" rows="5" required></textarea>
                             <label>Message</label>
                         </div>
-                        <input type="submit" value="Submit"/>
+                        <input type="submit" className="btn "value="Submit"/>
                     </form>
                 </div>
                 
