@@ -95,7 +95,7 @@ body {
 	border-radius: 60px;
 }
 .signIn{
-    width: 50%; 
+    width: 70%; 
     height: 50px;
     margin-top: 0%;
 }
@@ -138,20 +138,33 @@ body {
     margin: auto;
 }
 h1{
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: bold;
     color: #471d87af
+}
+.create{
+	margin-top: 5%;
+	text-align:right;
+}
+.signup{
+	text-decoration:none;
+	color:white;
+	width: 100%;
 }
 p{
     margin-top:5%
 }
 .sso_text{
-    text-align: center;
-    margin-top:30%;
+    text-align: left;
+    margin-top:10%;
+}
+.sso_text_Or{
+	margin-top: 5%;
+	text-align: center;
 }
 h2{
-    color: #ffffff;
+    color: #252323b8;
 }
 .login__submit {
 	background: #fff;
@@ -233,9 +246,21 @@ h2{
   text-transform: uppercase;
   width: 80%;
 }
+.google{
+	height: 47px;
+	width: 47px;
+	background-color: #fff;
+	margin: auto;
+	margin-top: 3%;
+	border-radius: 3px;
 
+}
+.logo{
+	height: 25px;
+	margin: 20% 5% 5% 5%;
+}
 .twitter-before {
-  background: #101114;
+  background: #3283FC;
   border-radius: 3px 0px 0px 3px;
   color: #f4f4f4;
   display: block;
@@ -248,12 +273,12 @@ h2{
 
 
 .twitter {
-  background: #1f3239;
+  background: #3283FC;
   border: none;
   border-radius: 0px 3px 3px 0px;
   color: #f4f4f4;
   cursor: pointer;
   height: 50px;
-  text-transform: uppercase;
+  font-style: bold !important;
   width: 80%;
 }
