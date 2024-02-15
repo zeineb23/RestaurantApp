@@ -1,11 +1,4 @@
 
-.about-section-container {
-    margin-top: 20rem;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
   .about-background-image-container {
     position: absolute;
     left: -150px;
