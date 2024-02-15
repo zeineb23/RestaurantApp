@@ -143,3 +143,18 @@ textarea.input{
     min-height: 150px;
     overflow: auto;
 }
+
+.btn{
+    position: relative;
+    top: 100px;
+    background : #fff;
+    outline: none;
+    border:none;
+    border-radius: 4px;
+    height : 45px;
+    width : 30%;
+    font-size : 16px;
+    color : #8f50ec;
+    cursor : pointer;
+    font-weight : 500;
+}
