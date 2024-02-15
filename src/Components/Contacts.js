@@ -23,7 +23,7 @@ function Contact() {
                     </div>
                 </div>
                 <div className="submit-form">
-                    <h4><b>Contact Us</b></h4>
+                    <h4 className="titleContact"><b>Contact Us</b></h4>
                     <form action="">
                         <div class="input-box">
                             <input type="text" className="input" required/>

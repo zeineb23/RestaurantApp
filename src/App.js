@@ -14,7 +14,6 @@ import Menus from './Components/Menus';
 function App() {
   return (
     <div className='All'>  
-    <NavBar />
       <div className='App'>
         <BrowserRouter>
           <Routes>
@@ -28,7 +27,6 @@ function App() {
         </BrowserRouter>
         <br/><br/>
       </div> 
-      <Footer />  
     </div>
 
   );
