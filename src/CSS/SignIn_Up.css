@@ -3,8 +3,6 @@
 @import url(https://weloveiconfonts.com/api/?family=fontawesome);
 
 
-@import url(https://meyerweb.com/eric/tools/css/reset/reset.css);
-
 
 [class*="fontawesome-"]:before {
   font-family: 'FontAwesome', sans-serif;
@@ -16,17 +14,6 @@
 	margin: 0;
 	padding: 0;	
 	font-family: Raleway, sans-serif;
-}
-
-body {
-	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
-}
-
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
 }
 
 .screen {		
@@ -272,7 +259,7 @@ h2{
 }
 
 
-.twitter {
+.twitter {	
   background: #3283FC;
   border: none;
   border-radius: 0px 3px 3px 0px;

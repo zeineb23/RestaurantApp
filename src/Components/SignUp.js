@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { auth, provider } from './config'
 import { signInWithPopup } from 'firebase/auth'
-import Home from './Home'
-import './SignIn.css'
+import '../CSS/SignIn_Up.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import {
   faUser,
   faLock,

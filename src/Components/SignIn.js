@@ -4,7 +4,6 @@ import { signInWithPopup } from 'firebase/auth'
 import Home from './Home'
 import '../CSS/SignIn_Up.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import {
   faUser,
   faLock,
