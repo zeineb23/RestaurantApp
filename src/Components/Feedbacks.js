@@ -5,7 +5,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import StarIcon from '@mui/icons-material/Star';
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
-
+import { Carousel } from "react-bootstrap";
 
 export default function Feedbacks() {
     const cardData = [
@@ -67,6 +67,16 @@ export default function Feedbacks() {
         }
     ];
 
+    const chunkArray = (array, size) => {
+        const chunkedArr = [];
+        for (let i = 0; i < array.length; i += size) {
+            chunkedArr.push(array.slice(i, i + size));
+        }
+        return chunkedArr;
+    };
+
+    const chunkedData = chunkArray(cardData, 3);
+
     return(
         <div>
             <div className="title">
@@ -74,22 +84,31 @@ export default function Feedbacks() {
                 <h6><i>Here's what our costumers had to say about us </i></h6>
             </div>
             <div className="feedbacks">
-            <Row xs={1} md={3} className="g-3">
-                {cardData.map(card => (
-                    <Col className="feedback" key={card.id}>
-                        <div className="bulle">"{card.content}"</div>
-                        <div className="user">
-                            <div><AccountCircleIcon sx={{ color: "#8f50ec" , fontSize: 50 }} /></div>
-                            <div  className="userName">
-                                <h6><b>{card.title}</b></h6> 
-                                {[...Array(card.stars)].map((_, index) => (
-                                    <StarIcon key={index} style={{ color: 'gold' }} />
-                                ))}
-                            </div>
-                        </div>
-                    </Col>
+            <Carousel style={{ controlColor: '#8f50ec' }}>
+            {chunkedData.map((chunk, index) => (
+                <Carousel.Item key={index}>
+                    <div className="feedbacks">
+                        <Row xs={1} md={3} className="g-3">
+                            {chunk.map(card => (
+                                <Col className="feedback" key={card.id}>
+                                    <div className="bulle">"{card.content}"</div>
+                                    <div className="user">
+                                        <div><AccountCircleIcon sx={{ color: "#8f50ec", fontSize: 50 }} /></div>
+                                        <div className="userName">
+                                            <h6><b>{card.title}</b></h6>
+                                            {[...Array(card.stars)].map((_, index) => (
+                                                <StarIcon key={index} style={{ color: 'gold' }} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                </Col>
+                            ))}
+                        </Row>
+                    </div>
+                </Carousel.Item>
             ))}
-            </Row>
+            
+        </Carousel>
             </div>
 </div>
     );       

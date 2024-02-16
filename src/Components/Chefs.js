@@ -71,7 +71,7 @@ function Chefs() {
   return (
     <div>
     <div className="title-chefs">
-        <h2>Meet our chefs</h2>
+        <h2 className="titl">Meet our chefs</h2>
     </div>
     <hr/>
 
@@ -89,7 +89,7 @@ function Chefs() {
                             <hr/>
                             <Card.Text>{card.content}</Card.Text>
                             <hr/>
-                            <a href="#"><TwitterIcon/></a> <a href="#"><InstagramIcon/></a> <a href="#"><FacebookIcon/></a>
+                            <a href="#"><TwitterIcon/></a> <a href="#"><InstagramIcon sx={{ color: "#8f50ec" }}/></a> <a href="#"><FacebookIcon/></a>
                         </Card.Body>
                     </Card>
                 </Col>

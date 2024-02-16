@@ -5,8 +5,10 @@
     margin-top : 50px;
 }
 
-.title-chefs{
+.titl{
     padding-left : 17%;
     padding-top : 30px;
     padding-bottom: 10px;
+    font-weight: bold;
+    color : #8f50ec;
 }
