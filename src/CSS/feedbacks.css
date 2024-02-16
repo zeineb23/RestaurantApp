@@ -11,10 +11,11 @@
     margin-right:7%;
     text-align: center;
     margin-top : 50px;
+    margin-bottom: 10%;
 }
 
 .feedback{
-    border: 2px solid #8f50ec; /* Bordure de la bulle */
+    border: 2px solid #776bcc; /* Bordure de la bulle */
     border-radius: 15px; /* Bordure arrondie de la bulle */
     width: 440px; /* Largeur de la bulle */
     padding:0;
@@ -22,8 +23,8 @@
 }
 .bulle {
     position: relative;
-    background-color: #8f50ec; /* Couleur de fond de la bulle */
-    border: 2px solid #8f50ec; /* Bordure de la bulle */
+    background-color: #776bcc; /* Couleur de fond de la bulle */
+    border: 2px solid #776bcc; /* Bordure de la bulle */
     padding: 20px; /* Espace intérieur de la bulle */
     width: auto; /* Largeur de la bulle */
     height: auto; /* Hauteur automatique selon le contenu */
@@ -40,7 +41,7 @@
     transform: translateX(-400%);
     border-width: 20px 20px 0; /* Taille de la pointe de la bulle */
     border-style: solid;
-    border-color: #8f50ec transparent; /* Couleur de la pointe */
+    border-color: #776bcc transparent; /* Couleur de la pointe */
 }
 
 .user{
@@ -51,11 +52,8 @@
 
 .title{
     margin-top:10px;
-    color: #8f50ec;
+    color: #776bcc;
     margin-left :15%;
 }
 
-h6{
-    color : gray;
-}
 
