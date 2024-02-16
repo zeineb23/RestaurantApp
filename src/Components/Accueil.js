@@ -3,6 +3,7 @@ import BannerBackground from "../Assets/home-banner-background2.png";
 import BannerImage from "../Assets/home-banner-image.png";
 import '../CSS/Accueil.css';
 import { FiArrowRight } from "react-icons/fi";
+import Feedbacks from "./Feedbacks";
 import About from "./About";
 import WhyUs from "./WhyUs";
 
@@ -33,6 +34,7 @@ export default function Accueil() {
             </div>
             <About />
             <WhyUs />
+            <Feedbacks/>
         </div>
     );       
 }

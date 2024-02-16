@@ -79,9 +79,11 @@ export default function Feedbacks() {
 
     return(
         <div>
-            <div className="title">
-                <h3><b>Feedbacks</b></h3>
-                <h6><i>Here's what our costumers had to say about us </i></h6>
+            <div className="work-section-wrapper">
+            <div className="work-section-top">
+                <p className="primary-subheading">Feedbacks</p>
+                <h1 className="primary-heading"><center>What our costumers say about us </center></h1>
+                </div>
             </div>
             <div className="feedbacks">
             <Carousel style={{ controlColor: '#8f50ec' }}>
@@ -91,11 +93,11 @@ export default function Feedbacks() {
                         <Row xs={1} md={3} className="g-3">
                             {chunk.map(card => (
                                 <Col className="feedback" key={card.id}>
-                                    <div className="bulle">"{card.content}"</div>
+                                    <div className="bulle"><h6>"{card.content}"</h6></div>
                                     <div className="user">
-                                        <div><AccountCircleIcon sx={{ color: "#8f50ec", fontSize: 50 }} /></div>
+                                        <div><AccountCircleIcon sx={{ color: "#776bcc", fontSize: 50 }} /></div>
                                         <div className="userName">
-                                            <h6><b>{card.title}</b></h6>
+                                            <h5>{card.title}</h5>
                                             {[...Array(card.stars)].map((_, index) => (
                                                 <StarIcon key={index} style={{ color: 'gold' }} />
                                             ))}
@@ -108,9 +110,9 @@ export default function Feedbacks() {
                 </Carousel.Item>
             ))}
             
-        </Carousel>
-            </div>
-</div>
+            </Carousel>
+        </div>
+    </div>
     );       
     
 }
