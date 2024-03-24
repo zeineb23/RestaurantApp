@@ -12,6 +12,7 @@ import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import RestaurantsNearby from './Components/RestaurantsNearby';
 import Contact from './Components/Contacts';
+import Restaurants from './Components/Restaurants';
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Acceuil />}/>
-            <Route path="/menus" element={<Menus />} />
+            <Route path="/menus" element={<Menus />} />            
             <Route path="/maps" element={<RestaurantsNearby />} />
+            <Route path="/restos" element={<Restaurants />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/chefs" element={<Chefs />} />
             <Route path="/feedback" element={<Feedbacks />} />

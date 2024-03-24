@@ -3,36 +3,38 @@ import Card from 'react-bootstrap/Card';
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 
-export default function Menus() {
-  const [cardData, setCardData] = useState([]);
+export default function Restaurants() {
+  const [data, setData] = useState([]);
 
   // Fetch data from the backend when the component mounts
   useEffect(() => {
-    fetch('http://localhost:5000/menu')
+    fetch('http://localhost:5000/resto')
       .then(response => response.json())
-      .then(data => setCardData(data.data))
+      .then(data => setData(data.data))
       .catch(error => console.error('Error fetching data:', error));
   }, []); // The empty array ensures this effect runs only once
 
   return (
     <div>
         <div className="title-chefs">
-            <h2>Explore our menu</h2>
+            <h2>Explore our restaurants</h2>
         </div>
         <hr/>
 
         <div className="cards">
         <Row xs={1} md={3} className="g-3">
-                {cardData.map(card => (
+                {data.map(card => (
                     <Col key={card.id}>
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={card.image} />
                             <Card.Body>
-                                <Card.Title>{card.name}</Card.Title>
+                                <Card.Title>{card.nom}</Card.Title>
                                 <hr/>
-                                <Card.Text>{card.desc}</Card.Text>
+                                <Card.Text><b>Pays : </b>{card.pays}</Card.Text>
+                                <Card.Text><b>Ville : </b>{card.ville}</Card.Text>
+                                <Card.Text><b>Catégorie : </b>{card.categorie}</Card.Text>
                                 <hr/>
-                                <div>Price : {card.price} $</div>
+                                <button>Explore menu</button>
                             </Card.Body>
                         </Card>
                     </Col>

@@ -8,7 +8,7 @@
     align-items: center;
     height: 100vh;
  }
-.card {
+ .centered .card {
     overflow: hidden;
     position: relative;
     z-index: 3;
@@ -19,7 +19,7 @@
     text-align: center;
     box-shadow: 0 100px 100px rgb(0 0 0 / 10%);
 } 
-.card::before { 
+.centered .card::before { 
     content: ""; 
     position: absolute; 
     top: -880px; 
@@ -30,7 +30,7 @@
     border-radius: 50%; 
     background: #8f50ec; 
 } 
-.background::after { 
+.centered .background::after { 
     content: ""; 
     position: inherit; 
     right: -50vmin; 
@@ -41,7 +41,7 @@
     background: #8f50ec;
 }
 
-.card .logo { 
+.centered .card .logo { 
     position: absolute; 
     top: 30px; 
     left: 50%; 
@@ -50,19 +50,19 @@
     height: 64px; 
 } 
 
-.card > h2 { 
+.centered .card > h2 { 
     font-size: 22px; 
     font-weight: 400; 
     margin: 0 0 38px; 
     color: rgb(0 0 0 / 38%); 
 } 
 
-.form { 
+.centered .form { 
     margin: 0 0 44px; 
     display: grid; 
     gap: 12px; 
 } 
-.form :is(input,.input, button) { 
+.centered .form :is(input,.input, button) { 
     width: 100%; 
     height: 56px; 
     border-radius: 28px; 
@@ -70,14 +70,14 @@
     font-family: inherit; 
 } 
 
-.form > input { 
+.centered .form > input { 
     border: 0; 
     padding: 0 24px; 
     color: #222222; 
     background: #ededed; 
 } 
-.form > input::placeholder { color: rgb(0 0 0 / 28%); } 
-.form > button { 
+.centered .form > input::placeholder { color: rgb(0 0 0 / 28%); } 
+.centered .form > button { 
     border: 0; 
     color: #f9f9f9; 
     background: #8f50ec; 
@@ -86,10 +86,10 @@
     font-weight: 500; 
     cursor: pointer; 
 } 
-.card > .footer { color: #a1a1a1; } 
-.card > .footer > a {color: #216ce7; } 
+.centered .card > .footer { color: #a1a1a1; } 
+.centered .card > .footer > a {color: #216ce7; } 
 
-.logo{
+.centered .logo{
     color: #143d81;
     background-color: white;
     border-radius: 
