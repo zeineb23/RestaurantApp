@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+*{
+    margin : 0;
+    padding :0;
+    font-family : "poppins";
+}
+
+.feedbacks{
+    width : 95%;
+    margin-left : 5%;
+    margin-right:7%;
+    text-align: center;
+    margin-top : 50px;
+    margin-bottom: 10%;
+}
+
+.feedback{
+    border: 2px solid #776bcc; /* Bordure de la bulle */
+    border-radius: 15px; /* Bordure arrondie de la bulle */
+    width: 440px; /* Largeur de la bulle */
+    padding:0;
+    margin-right:20px;
+}
+.bulle {
+    position: relative;
+    background-color: #776bcc; /* Couleur de fond de la bulle */
+    border: 2px solid #776bcc; /* Bordure de la bulle */
+    padding: 20px; /* Espace intérieur de la bulle */
+    width: auto; /* Largeur de la bulle */
+    height: auto; /* Hauteur automatique selon le contenu */
+    border-radius: 10px; /* Bordure arrondie de la bulle */
+    color: white;
+    font-size: small;
+}
+
+.bulle::before {
+    content: '';
+    position: absolute;
+    bottom: -20px; /* Positionner la pointe de la bulle */
+    left: 50%;
+    transform: translateX(-400%);
+    border-width: 20px 20px 0; /* Taille de la pointe de la bulle */
+    border-style: solid;
+    border-color: #776bcc transparent; /* Couleur de la pointe */
+}
+
+.user{
+    margin-top :20px;
+    margin-left : 10px;
+    display : flex;
+}
+
+.title{
+    margin-top:10px;
+    color: #776bcc;
+    margin-left :15%;
+}
+
+
