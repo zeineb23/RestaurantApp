@@ -7,7 +7,7 @@ import { auth,provider} from "./config"; // Import necessary Firebase modules
 const strengthLabels = ["Weak", "Medium", "Strong"];
 
 
-class SignUp extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,10 +52,9 @@ class SignUp extends Component {
           <div className="background"></div>
           <div className="card">
             <div className="logo"><LoginIcon fontSize="large" /></div>
-            <h2>Welcome</h2>
+            <h2>Welcome Back</h2>
             <form className="form">
-            <input type="email" placeholder="E-mail" />
-              <input type="text" placeholder="Username" />
+              <input type="email" placeholder="Username" />
               <input
                 type="password"
                 placeholder="Password"
@@ -66,13 +65,12 @@ class SignUp extends Component {
               <div className={`strength ${strengthClassName}`}>
                 {strength && `${strength} password`}
               </div>
-              <button>Sign Up</button>
-             </form>
-            <button className="google" onClick={this.HandleClick}><img src="https://d172mw7nx82lso.cloudfront.net/assets/landing/auth/google-d33f9eb20af60f124ea3de0def9116700064e558db8a63275354162d46ae09cb.png" width="140px" height="40px" /></button>
-            <br/>
-            <div className="footer"> Have an account? Sign in <a href="#">here</a>
+              <button>Sign In</button>
+            </form>
+            <div className="footer"> Need an account? Sign up <a href="#">here</a>
               <br />
               <br />
+              <button variant="primary" onClick={this.HandleClick}><img src="https://d172mw7nx82lso.cloudfront.net/assets/landing/auth/google-d33f9eb20af60f124ea3de0def9116700064e558db8a63275354162d46ae09cb.png" width="140px" height="40px" /></button>
             </div>
           </div>
         </div>
@@ -81,4 +79,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default Login;

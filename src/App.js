@@ -8,7 +8,7 @@ import Acceuil from './Components/Accueil';
 import Chefs from './Components/Chefs';
 import Feedbacks from './Components/Feedbacks';
 import About from './Components/About';
-import SignIn from './Components/SignIn';
+import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import RestaurantsNearby from './Components/RestaurantsNearby';
 import Contact from './Components/Contacts';
@@ -27,7 +27,7 @@ function App() {
             <Route path="/chefs" element={<Chefs />} />
             <Route path="/feedback" element={<Feedbacks />} />
             <Route path="/about" element={<About />} /> 
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
           </Routes>
         </BrowserRouter>
