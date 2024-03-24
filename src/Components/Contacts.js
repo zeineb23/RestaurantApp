@@ -1,12 +1,13 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FacebookIcon from '@mui/icons-material/Facebook';
-//import '../CSS/contact.css';
+import '../CSS/contact.css';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 function Contact() {
     return (
         <div className="container">
+        <div className="container-contact">
             <div className="item">
                 <div className="contact">
                     <div className="first-text">
@@ -46,7 +47,7 @@ function Contact() {
                 </div>
                 
             </div>
-            
+            </div>
         </div>
       );
     }
