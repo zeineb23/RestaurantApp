@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../CSS/Login.css";
 import LoginIcon from '@mui/icons-material/Login';
+import { Navigate } from 'react-router-dom'; // Import Navigate for redirection
 import { signInWithPopup } from "firebase/auth";
-import { auth,provider} from "./config"; // Import necessary Firebase modules
+import { auth, provider } from "./config";
 const strengthLabels = ["Weak", "Medium", "Strong"];
-
 
 class SignUp extends Component {
   constructor(props) {
@@ -13,7 +13,8 @@ class SignUp extends Component {
     this.state = {
       password: '',
       strength: '',
-      value: ''
+      value: '',
+      redirectToSignIn: false // State to handle redirection to sign in
     };
   }
 
@@ -27,24 +28,30 @@ class SignUp extends Component {
     return strengthLabels[indicator];
   }
 
-  HandleClick = () => {
+  handleGoogleLogin = () => {
     signInWithPopup(auth, provider).then((data) => {
-      this.state.value = data.user.email;
-      localStorage.setItem("email", data.user.email)
-    })
-  }
+      this.setState({ value: data.user.email });
+      localStorage.setItem("email", data.user.email);
+    });
+  };
 
   handleChange = (event) => {
     const password = event.target.value;
     const strength = this.getStrength(password);
     this.setState({ password, strength });
-    // You can perform additional actions here, such as calling a prop function
-    // For example: this.props.onChangePassword(password);
+  };
+
+  handleSignInRedirect = () => {
+    this.setState({ redirectToSignIn: true });
   };
 
   render() {
-    const { password, strength } = this.state;
+    const { password, strength, redirectToSignIn } = this.state;
     const strengthClassName = strength ? strength.toLowerCase() : '';
+
+    if (redirectToSignIn) {
+      return <Navigate to="/signin" />;
+    }
 
     return (
       <div className='container'>
@@ -53,24 +60,15 @@ class SignUp extends Component {
           <div className="card">
             <div className="logo"><LoginIcon fontSize="large" /></div>
             <h2>Welcome</h2>
-            <form className="form">
-            <input type="email" placeholder="E-mail" />
-              <input type="text" placeholder="Username" />
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={this.handleChange}
-              />
-
-              <div className={`strength ${strengthClassName}`}>
-                {strength && `${strength} password`}
-              </div>
-              <button>Sign Up</button>
-             </form>
-            <button className="google" onClick={this.HandleClick}><img src="https://d172mw7nx82lso.cloudfront.net/assets/landing/auth/google-d33f9eb20af60f124ea3de0def9116700064e558db8a63275354162d46ae09cb.png" width="140px" height="40px" /></button>
+            <h6 className='signin-msg'>Sign Up with Google</h6>
+           
+            <button className="google" onClick={this.handleGoogleLogin}>
+              <img src="https://d172mw7nx82lso.cloudfront.net/assets/landing/auth/google-d33f9eb20af60f124ea3de0def9116700064e558db8a63275354162d46ae09cb.png" width="140px" height="40px" />
+            </button>
             <br/>
-            <div className="footer"> Have an account? Sign in <a href="#">here</a>
+            <div className="footer"> 
+              Have an account? 
+              <button className="sign" onClick={this.handleSignInRedirect}>Sign in</button>
               <br />
               <br />
             </div>
