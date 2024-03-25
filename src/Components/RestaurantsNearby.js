@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
-import { Col } from "react-bootstrap";
-import { Row } from "react-bootstrap";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Col, Row } from "react-bootstrap";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -15,10 +14,19 @@ const customMarkerIcon = new L.Icon({
   popupAnchor: [0, -35]
 });
 
+// This is a helper component to handle map centering due to the way react-leaflet v3 works with imperative code
+function ChangeMapView({ center }) {
+  const map = useMap();
+  map.setView(center, map.getZoom());
+  return null;
+}
+
 const RestaurantsNearby = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [location, setLocation] = useState({ latitude: 36.8601, longitude: 10.1934 }); // Default to Ariana, Tunisia
   const [search, setSearch] = useState('');
+
+  const mapRef = useRef(null);
 
   useEffect(() => {
     fetchRestaurants(location.latitude, location.longitude);
@@ -63,7 +71,6 @@ const RestaurantsNearby = () => {
       if (response.data && response.data.length > 0) {
         const { lat, lon } = response.data[0];
         setLocation({ latitude: parseFloat(lat), longitude: parseFloat(lon) });
-        setSearch(''); // Clear the search input
       } else {
         alert('Location not found.');
       }
@@ -75,44 +82,55 @@ const RestaurantsNearby = () => {
 
   return (
     <div>
-      <h2>Restaurants Near Me</h2>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search for a location"
-        />
-        <button type="submit">Search</button>
-      </form>
-      <MapContainer center={[location.latitude, location.longitude]} zoom={15} style={{ height: '400px', width: '100%' }}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        {restaurants.map((restaurant, index) =>
-          restaurant.lat && restaurant.lon ? (
-            <Marker key={index} position={[restaurant.lat, restaurant.lon]} icon={customMarkerIcon}>
-              <Popup>{restaurant.tags && restaurant.tags.name ? restaurant.tags.name : 'Restaurant'}</Popup>
-            </Marker>
-          ) : null
-        )}
-      </MapContainer>
+      <br/><br/>
+      <div className="work-section-top">
+        <p className="primary-subheading">Restaurants Near Me</p>
+      </div>
+      <center>
+        <form onSubmit={handleSearch}>
+          <label>Enter a location: </label>
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search for a location"
+          />
+          <button type="submit">Search</button>
+        </form><br/>
+        <MapContainer
+          center={[location.latitude, location.longitude]}
+          zoom={15}
+          style={{ height: '400px', width: '80%' }}
+          ref={mapRef}
+        >
+          <ChangeMapView center={[location.latitude, location.longitude]} />
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          {restaurants.map((restaurant, index) =>
+            restaurant.lat && restaurant.lon ? (
+              <Marker key={index} position={[restaurant.lat, restaurant.lon]} icon={customMarkerIcon}>
+                <Popup>{restaurant.tags && restaurant.tags.name ? restaurant.tags.name : 'Restaurant'}</Popup>
+              </Marker>
+            ) : null
+          )}
+        </MapContainer>
+      </center>
       <div className="cards">
+      <h3>Restaurants in {search}</h3>
       <Row xs={1} md={3} className="g-3">
         {restaurants.map((restaurant, index) =>
           restaurant.lat && restaurant.lon ? (
             <Col>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={'https://th.bing.com/th/id/R.11e615426ae5e806ffb8ac962c51e062?rik=FnmVnQd8AG0XwA&pid=ImgRaw'} />
-                            <Card.Body>
-                                <Card.Title>{restaurant.tags && restaurant.tags.name ? restaurant.tags.name : 'Restaurant'}</Card.Title>
-                                <hr/>
-                                <Card.Text>({restaurant.lat}, {restaurant.lon})</Card.Text>
-                                <hr/>
-                            </Card.Body>
-                        </Card>
-              </Col>
+                <Card style={{width: "18rem"}}>
+                  <Card.Body>
+                    <Card.Title>{restaurant.tags && restaurant.tags.name ? restaurant.tags.name : 'Restaurant'}</Card.Title>
+                    <hr/>
+                    <Card.Text>({restaurant.lat}, {restaurant.lon})</Card.Text>
+                  </Card.Body>
+                </Card>
+            </Col>
           ) : null
         )}
       </Row>

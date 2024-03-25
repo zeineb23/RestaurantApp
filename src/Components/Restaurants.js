@@ -16,10 +16,10 @@ export default function Restaurants() {
 
   return (
     <div>
-        <div className="title-chefs">
-            <h2>Explore our restaurants</h2>
+        <br/><br/>
+        <div className="work-section-top">
+            <p className="primary-subheading">Explore our restaurants</p>
         </div>
-        <hr/>
 
         <div className="cards">
         <Row xs={1} md={3} className="g-3">

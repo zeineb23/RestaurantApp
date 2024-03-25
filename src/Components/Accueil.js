@@ -33,8 +33,8 @@ export default function Accueil() {
                 </div>
             </div>
             <About />
+            <br/><br/><br/><br/>
             <WhyUs />
-            <Feedbacks/>
         </div>
     );       
 }

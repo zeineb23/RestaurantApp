@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSS/Chefs.css';
 import Card from 'react-bootstrap/Card';
@@ -10,84 +10,38 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from "@mui/icons-material/Facebook";
 
 function Chefs() {
-    const cardData = [
-        { 
-            id: 1, 
-            imageSrc: 'https://th.bing.com/th/id/R.11e615426ae5e806ffb8ac962c51e062?rik=FnmVnQd8AG0XwA&pid=ImgRaw',
-            title: "Chef's name 1",
-            content: "Some quick example text to build on the card title and make up the bulk of the card's content 1.",
-            stars : 3,
-        },
-        { 
-            id: 1, 
-            imageSrc: 'https://th.bing.com/th/id/R.11e615426ae5e806ffb8ac962c51e062?rik=FnmVnQd8AG0XwA&pid=ImgRaw',
-            title: "Chef's name 1",
-            content: "Some quick example text to build on the card title and make up the bulk of the card's content 1.",
-            stars : 3
-        },
-        { 
-            id: 1, 
-            imageSrc: 'https://th.bing.com/th/id/R.11e615426ae5e806ffb8ac962c51e062?rik=FnmVnQd8AG0XwA&pid=ImgRaw',
-            title: "Chef's name 1",
-            content: "Some quick example text to build on the card title and make up the bulk of the card's content 1.",
-            stars : 3
-        },
-        { 
-            id: 1, 
-            imageSrc: 'https://th.bing.com/th/id/R.11e615426ae5e806ffb8ac962c51e062?rik=FnmVnQd8AG0XwA&pid=ImgRaw',
-            title: "Chef's name 1",
-            content: "Some quick example text to build on the card title and make up the bulk of the card's content 1.",
-            stars : 3
-        },    
-        { 
-            id: 1, 
-            imageSrc: 'https://th.bing.com/th/id/R.11e615426ae5e806ffb8ac962c51e062?rik=FnmVnQd8AG0XwA&pid=ImgRaw',
-            title: "Chef's name 1",
-            content: "Some quick example text to build on the card title and make up the bulk of the card's content 1.",
-            stars : 3
-        },
-        { 
-            id: 1, 
-            imageSrc: 'https://th.bing.com/th/id/R.11e615426ae5e806ffb8ac962c51e062?rik=FnmVnQd8AG0XwA&pid=ImgRaw',
-            title: "Chef's name 1",
-            content: "Some quick example text to build on the card title and make up the bulk of the card's content 1.",
-            stars : 3
-        },
-        { 
-            id: 1, 
-            imageSrc: 'https://th.bing.com/th/id/R.11e615426ae5e806ffb8ac962c51e062?rik=FnmVnQd8AG0XwA&pid=ImgRaw',
-            title: "Chef's name 1",
-            content: "Some quick example text to build on the card title and make up the bulk of the card's content 1.",
-            stars : 3
-        },{ 
-            id: 1, 
-            imageSrc: 'https://th.bing.com/th/id/R.11e615426ae5e806ffb8ac962c51e062?rik=FnmVnQd8AG0XwA&pid=ImgRaw',
-            title: "Chef's name 1",
-            content: "Some quick example text to build on the card title and make up the bulk of the card's content 1.",
-            stars : 3
-        },
-    ];
+    const [data, setData] = useState([]);
 
+    // Fetch data from the backend when the component mounts
+    useEffect(() => {
+      fetch('http://localhost:5000/chef')
+        .then(response => response.json())
+        .then(data => setData(data.data))
+        .catch(error => console.error('Error fetching data:', error));
+    }, []); // The empty array ensures this effect runs only once
+  
   return (
     <div>
-    <div className="title-chefs">
-        <h2>Meet our chefs</h2>
-    </div>
-    <hr/>
+        <br/><br/>
+        <div className="work-section-top">
+            <p className="primary-subheading">Meet our chefs</p>
+        </div>
 
     <div className="cards">
     <Row xs={1} md={3} className="g-3">
-            {cardData.map(card => (
+            {data.map(card => (
                 <Col key={card.id}>
                     <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={card.imageSrc} />
+                        <Card.Img style={{ height: '20rem' }} variant="top" src={card.image} />
                         <Card.Body>
-                            <Card.Title>{card.title}</Card.Title>
+                            <Card.Title>{card.name}</Card.Title>
+                            <Card.Text>{card.desc}</Card.Text>
                             {[...Array(card.stars)].map((_, index) => (
                                 <StarIcon key={index} style={{ color: 'gold' }} />
                             ))}
                             <hr/>
                             <Card.Text>{card.content}</Card.Text>
+                            <Card.Text><b>Restaurant :</b> {card.resto.nom}</Card.Text>
                             <hr/>
                             <a href="#"><TwitterIcon/></a> <a href="#"><InstagramIcon sx={{ color: "#8f50ec" }}/></a> <a href="#"><FacebookIcon/></a>
                         </Card.Body>

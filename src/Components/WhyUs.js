@@ -23,7 +23,7 @@ export default function WhyUs() {
         },
       ];
       return (
-        <div className="work-section-wrapper">
+        <div style={{backgroundColor: "#e7e1f7", padding: "30px"}}>
           <div className="work-section-top">
             <p className="primary-subheading">Why Us ?</p>
             <h1 className="primary-heading">How It Works</h1>
@@ -32,7 +32,7 @@ export default function WhyUs() {
              discipline to ensure that your dining experience exceeds expectations every time. Here's how:
             </p>
           </div>
-          <div className="work-section-bottom">
+          <div className="work-section-bottom" style={{marginTop: "10px"}}>
             {workInfoData.map((data) => (
               <div className="work-section-info" key={data.title}>
                 <div className="info-boxes-img-container">

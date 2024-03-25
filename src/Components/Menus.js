@@ -16,10 +16,10 @@ export default function Menus() {
 
   return (
     <div>
-        <div className="title-chefs">
-            <h2>Explore our menu</h2>
+        <br/><br/>
+        <div className="work-section-top">
+            <p className="primary-subheading">Explore our menu</p>
         </div>
-        <hr/>
 
         <div className="cards">
         <Row xs={1} md={3} className="g-3">
@@ -28,11 +28,13 @@ export default function Menus() {
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={card.image} />
                             <Card.Body>
-                                <Card.Title>{card.name}</Card.Title>
+                                <Card.Title><b>{card.name}</b></Card.Title>
                                 <hr/>
                                 <Card.Text>{card.desc}</Card.Text>
+                                <Card.Text><b>Restaurant :</b> {card.resto.nom}</Card.Text>
+                                <Card.Text><b>Price :</b> {card.price} TND</Card.Text>
                                 <hr/>
-                                <div>Price : {card.price} $</div>
+                                <button>Order now</button>
                             </Card.Body>
                         </Card>
                     </Col>
