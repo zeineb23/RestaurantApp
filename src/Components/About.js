@@ -37,10 +37,6 @@ export default function About() {
             </div>
           </Col>
         </Row>
-        
-
-
-
     );       
     
 }

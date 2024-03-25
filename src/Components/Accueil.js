@@ -35,6 +35,7 @@ export default function Accueil() {
             <About />
             <br/><br/><br/><br/>
             <WhyUs />
+            <Feedbacks/>
         </div>
     );       
 }

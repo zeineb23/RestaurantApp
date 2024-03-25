@@ -1,5 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
@@ -13,6 +14,7 @@ import SignUp from './Components/SignUp';
 import RestaurantsNearby from './Components/RestaurantsNearby';
 import Contact from './Components/Contacts';
 import Restaurants from './Components/Restaurants';
+import MenuResto from './Components/MenuResto';
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
             <Route path="/chefs" element={<Chefs />} />
             <Route path="/feedback" element={<Feedbacks />} />
             <Route path="/about" element={<About />} /> 
+            <Route path="/menu_resto" element={<MenuResto />} />
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
           </Routes>
