@@ -1,25 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getAuth,GoogleAuthProvider } from "firebase/auth";
 const firebaseConfig = {
-
-  apiKey: "AIzaSyCvqSui1Ppg-8Iq-uzWuN2h3VZpUd_nsCM",
-
-  authDomain: "gastrofinder-5893c.firebaseapp.com",
-
-  projectId: "gastrofinder-5893c",
-
-  storageBucket: "gastrofinder-5893c.appspot.com",
-
-  messagingSenderId: "700953211785",
-
-  appId: "1:700953211785:web:43459a7ecfc72a214e2758",
-
-  measurementId: "G-3WXYTKH2VT"
-
+  apiKey: "AIzaSyDmO-scx3IaBcd3FAdoKzUzd7r88biOcPM",
+  authDomain: "restaurantapp-10fde.firebaseapp.com",
+  projectId: "restaurantapp-10fde",
+  storageBucket: "restaurantapp-10fde.appspot.com",
+  messagingSenderId: "81767659633",
+  appId: "1:81767659633:web:e819922700e8c7d616c3d0",
+  measurementId: "G-485SP2V1B7"
 };
-
-
-
 
 
 // Initialize Firebase
